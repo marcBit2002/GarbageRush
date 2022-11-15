@@ -1,5 +1,5 @@
 const drag = document.getElementById("basura");
-
+const map2 = document.getElementById("map2");
 window.addEventListener('DOMContentLoaded', (evt) => {
     console.log('DOM fully loaded and parsed');
 });
@@ -20,16 +20,20 @@ function mousedown(e) {
         let newX = prevX - e.clientX;
         let newY = prevY - e.clientY;
     
-        //definir l'actual left and top
-        // const rect = drag.getBoundingClientRect();
-    
-        //restem l'actual - la nova posicio del mouse
-        // drag.style.left = rect.left - newX + "px";
-        // drag.style.top = rect.top - newY + "px";
-
-        drag.style.left = drag.offsetLeft - newX + "px";
-        drag.style.top = drag.offsetTop - newY + "px";
-    
+        //Colisions and movement
+        //Left
+        if (drag.offsetLeft >=0) {
+            drag.style.left = drag.offsetLeft - newX + "px";
+        } else {
+            drag.style.left = 0;
+        }
+        //Top
+        if (drag.offsetTop >=0) {
+            drag.style.top = drag.offsetTop - newY + "px";
+        } else {
+            drag.style.top = 0;
+        }
+            //left +playerwithd > mapwidht
         //tornem a indicar l'actual posicio del mouse
         prevX = e.clientX;
         prevY = e.clientY;

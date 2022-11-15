@@ -24,21 +24,22 @@ const map = document.getElementById("map");
 
 const trashImage = document.createElement("div");
 trashImage.setAttribute("id", "basura");
-
-//trashImage.style.backgroundColor = "red";
-trashImage.style.height = "100px";
-trashImage.style.width = "100px";
-trashImage.style.backgroundImage = "url('../assets/img/bottle.png')";
+trashImage.style.backgroundColor = "red";
+trashImage.style.height = "150px";
+trashImage.style.width = "150px";
 trashImage.style.position = "absolute";
 trashImage.style.cursor = "pointer";
 trashImage.style.zIndex = "100";
+// trashImage.style.backgroundImage = "url('../assets/img/bottle.png')";
+// trashImage.style.backgroundImage = "url(image[randomNumber])";
 
-var mapWidth = map.clientWidth;
-var mapHeight = map.clientHeight;
-randomTop = getRandom(0, (mapHeight - trashImage.clientHeight)/2);
-randomLeft = getRandom(0, mapWidth - trashImage.clientWidth);
+let mapWidth = map.offsetWidth;
+let mapHeight = map.offsetHeight;
 
-trashImage.style.left = randomLeft +"px";
+let randomTop = getRandom(0, (mapHeight - 150) / 2);
+let randomLeft = getRandom(0, mapWidth - 150);
+
+trashImage.style.left = randomLeft + "px";
 trashImage.style.top = randomTop + "px";
 map.appendChild(trashImage);
 
@@ -46,10 +47,11 @@ map.appendChild(trashImage);
 
 
 
-//Posicionar imagenes aleatorias en un div
+// //Posicionar imagenes aleatorias en un div
 // var images = document.getElementsByTagName('div');
-// get map width and height
-
+// // get map width and height
+// var mapWidth = map.clientWidth;
+// var mapHeight = map.clientHeight;
 
 // for (var i = 0; i < images.length; i++) {
 //     var thisImage = images[i];
