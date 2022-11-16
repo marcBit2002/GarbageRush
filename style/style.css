@@ -1,6 +1,7 @@
 * {
     margin: 0;
     box-sizing: border-box;
+    user-select: none;
 }
 
 body {
@@ -23,6 +24,6 @@ body {
 .contendor {
     width: 200px;
     height: 200px;
-    margin-top: 450px;
+    margin-top: 700px;
     margin-left: 100px;
 }

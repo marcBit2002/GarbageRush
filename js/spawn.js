@@ -15,7 +15,7 @@ image[1] = "../assets/img/paper.png";
 image[2] = "../assets/img/bannana.png";
 image[3] = "../assets/img/plastic.png";
 
-const map = document.getElementById("map");
+let map = document.getElementById("map");
 
 // const trashImage = document.createElement("img");
 // trashImage.setAttribute("id", "basura");
