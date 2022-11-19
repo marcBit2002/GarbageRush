@@ -1,43 +1,57 @@
-// Return a random number between two rangs
+let map = document.getElementById("map");
+let nameClass = selectRandomClass();
+let urlImg = selectRandomImg();
+
 function getRandom(min, max) {
     var ranNum = Math.floor(Math.random() * (max - min + 1) + min);
     return ranNum;
 }
 
-//Choose random images from assets
-let min = 0;
-let max = 3;
-let randomNumber = getRandom(min, max);
-let path = "../assets/img/";
-let yellowImage = ["bottle.png"];
-let blueImage = [];
-let greenImage = [];
-let brownImage = [];
-// yellowImage.push("../assets/img/bottle.png");
-yellowImage[0] = "../assets/img/bottle.png";
-yellowImage[1] = "../assets/img/paper.png";
-yellowImage[2] = "../assets/img/bannana.png";
-yellowImage[3] = "../assets/img/plastic.png";
-
-
-// const trashImage = document.createElement("img");
-// trashImage.setAttribute("id", "basura");
-// trashImage.src = image[randomNumber];
-// map.appendChild(trashImage);
-
-export function createTrash() {
-    let map = document.getElementById("map");
-
+function createImg(nameClass, urlImg) {
     const trashImage = document.createElement("div");
     trashImage.setAttribute("id", "basura");
-    trashImage.style.backgroundColor = "red";
+    trashImage.setAttribute("class", nameClass);
+    trashImage.style.backgroundImage = "url(" + urlImg + ")";
+    trashImage.style.backgroundSize = "cover";
+    trashImage.style.backgroundPosition = "center";
     trashImage.style.height = "150px";
     trashImage.style.width = "150px";
     trashImage.style.position = "absolute";
     trashImage.style.cursor = "pointer";
-    // trashImage.style.backgroundImage = "url('../assets/img/bottle.png')";
     trashImage.style.zIndex = "100";
-    // trashImage.style.backgroundImage = "url(image[randomNumber])";
+    return trashImage;
+}
+
+
+function selectRandomImg() {
+    let images;
+    let path = "../assets/img/";
+    let yellowImage = [path + "plastic.png"];
+    let blueImage = [path + "paper.png", path + "blue.png"];
+    let greenImage = [path + "bottle.png"];
+    let brownImage = [path + "bannana.png"];
+    if (nameClass === "basuraAzul") {
+        images = blueImage;
+    } else if (nameClass === "basuraVerde") {
+        images = greenImage;
+    } else if (nameClass === "basuraAmarillo") {
+        images = yellowImage;
+    } else {
+        images = brownImage;
+    }
+    let random = Math.floor(Math.random() * images.length);
+    return images[random];
+}
+
+function selectRandomClass() {
+    let nameClass = ["basuraAzul", "basuraVerde", "basuraMarron", "basuraAmarillo"];
+    let random = Math.floor(Math.random() * nameClass.length);
+    return nameClass[random];
+}
+
+export function createTrash() {
+    let trashImage;
+    trashImage = createImg(nameClass, urlImg);
 
     let mapWidth = map.offsetWidth;
     let mapHeight = map.offsetHeight;

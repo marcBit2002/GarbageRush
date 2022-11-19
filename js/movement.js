@@ -1,5 +1,3 @@
-// import { createTrash } from "./spawn";
-
 let drag = document.getElementById("basura");
 map = document.getElementById("map");
 window.addEventListener('DOMContentLoaded', (evt) => {

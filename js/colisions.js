@@ -4,6 +4,7 @@ let drag = document.getElementById("basura");
 let map = document.getElementById("map");
 
 drag.addEventListener('mousedown', mousedown);
+
 function mousedown(e) {
     //Posicio actual del mouse/cursor
     let prevX = e.clientX;
@@ -50,7 +51,10 @@ function mousedown(e) {
 
         if (droppableBelow != null) {
             drag.remove();
+            mouseup();
             createTrash();
+            drag.addEventListener('mousedown', mousedown);
+
         }
 
         // if (prevY > map.offsetWidth) {
