@@ -12,16 +12,18 @@
 
 <body>
     <div id="map">
-
-        <!-- <div id="basura"></div> -->
-        <img class="contendor" src="./assets/img/blue_container.png" alt="">
-        <img class="contendor" src="./assets/img/green_container.png" alt="">
-        <img class="contendor" src="./assets/img/brown_container.png" alt="">
-
+        <div class="posicionarContendores">
+            <div id="contendorAzul" class="dropzone"></div>
+            <div id="contendorVerde"class="dropzone"></div>
+            <div id="contendorMarron"class="dropzone"></div>
+            <div id="contenedorAmarillo"class="dropzone"></div>
+        </div>
     </div>
 
-    <script src="./js/spawn.js"></script>
-    <script src="./js/movement.js"></script>
+    <script src="./js/spawn.js" type="module"></script>
+    <!-- <script src="./js/movement.js"></script> -->
+    <!-- <script src="./js/colisions.js"></script> -->
+    <script src="./js/colisions.js" type="module"></script>
 </body>
 
 </html>

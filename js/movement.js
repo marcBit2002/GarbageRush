@@ -1,10 +1,12 @@
-const drag = document.getElementById("basura");
+// import { createTrash } from "./spawn";
+
+let drag = document.getElementById("basura");
 map = document.getElementById("map");
 window.addEventListener('DOMContentLoaded', (evt) => {
     console.log('DOM fully loaded and parsed');
 });
-drag.addEventListener('mousedown', mousedown);
 
+drag.addEventListener('mousedown', mousedown);
 function mousedown(e) {
 
     //Posicio actual del mouse/cursor
@@ -15,6 +17,7 @@ function mousedown(e) {
     document.addEventListener('mousemove', mousemove);
     document.addEventListener('mouseup', mouseup);
 
+    let margin = (window.innerWidth - map.offsetWidth) / 2;
     function mousemove(e) {
         //Nova posicio actual del mouse
         let newX = prevX - e.clientX;
@@ -23,7 +26,15 @@ function mousedown(e) {
         //Movement
         drag.style.left = drag.offsetLeft - newX + "px";
         drag.style.top = drag.offsetTop - newY + "px";
-  
+
+        if (prevY > map.offsetWidth) {
+           
+        }
+
+        if (prevX < margin || prevX > window.innerWidth - margin) {
+            console.log("te vas fuera");
+            //
+        }
 
         //Colisions
         //Left
