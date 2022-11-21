@@ -1,8 +1,11 @@
 import { createTrash } from "./spawn.js";
+import {checkTrash} from "./checkTrash.js";
 createTrash();
-let drag = document.getElementById("basura");
-let map = document.getElementById("map");
 
+let drag = document.getElementById("basura");
+// console.log(drag.id);
+let map = document.getElementById("map");
+let currentDroppable = null;
 drag.addEventListener('mousedown', mousedown);
 
 function mousedown(e) {
@@ -49,13 +52,22 @@ function mousedown(e) {
         if (!elemBelow) return;
         let droppableBelow = elemBelow.closest('.dropzone');
 
-        if (droppableBelow != null) {
-            drag.remove();
-            mouseup();
-            createTrash();
-            drag.addEventListener('mousedown', mousedown);
+        if (currentDroppable != droppableBelow) {
 
+            if (currentDroppable) {
+                createTrash();                
+            }
+
+            currentDroppable = droppableBelow;
+            if (currentDroppable) {
+                console.log(checkTrash(drag, droppableBelow));
+                //drag.remove();
+                currentDroppable =  null;
+                
+            }
         }
+      
+
 
         // if (prevY > map.offsetWidth) {
 
@@ -71,8 +83,10 @@ function mousedown(e) {
         prevY = e.clientY;
     }
 
+
     function mouseup() {
         //Desactives els events mousemove i mouseup
+        // alert("Ha entrado");
         document.removeEventListener('mousemove', mousemove);
         document.removeEventListener('mouseup', mouseup);
     }
