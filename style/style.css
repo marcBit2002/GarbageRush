@@ -21,31 +21,28 @@ body {
     background-position: center;
 }
 
-#contendorAzul {
+#contenedorAzul {
     width: 200px;
     height: 200px;
     background-image: url("../assets/img/blue_container.png");
-    /* background-color: blue; */
     display: inline-block;
     background-position: center;
     background-size: cover;
 }
 
-#contendorVerde {
+#contenedorVerde {
     width: 200px;
     height: 200px;
     background-image: url("../assets/img/green_container.png");
-    /* background-color: green; */
     display: inline-block;
     background-position: center;
     background-size: cover;
 }
 
-#contendorMarron {
+#contenedorMarron {
     width: 200px;
     height: 200px;
     background-image: url("../assets/img/brown_container.png");
-    /* background-color: brown; */
     display: inline-block;
     background-position: center;
     background-size: cover;
@@ -69,5 +66,38 @@ body {
     width: 1300px;
     display: flex;
     justify-content: space-evenly;
+}
 
+.posicionarTimerScore {
+    text-align: center;
+    position: absolute;
+    bottom: 1px;
+    height: 50px;
+    width: 1300px;
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+#puntuacion,
+#tiempo {
+    width: 300px;
+    display: inline-block;
+    justify-content: space-evenly;
+}
+
+#puntuacion,
+p {
+    color: black;
+    font-weight: bold;
+    font-size: large;
+    font-size: 30px;
+}
+
+#tiempo,
+p {
+    color: black;
+    font-weight: bold;
+    font-size: large;
+    font-size: 30px;
 }

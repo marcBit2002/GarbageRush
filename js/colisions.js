@@ -1,5 +1,5 @@
 import { createTrash } from "./spawn.js";
-import {checkTrash} from "./checkTrash.js";
+import { checkTrash } from "./scoreTimer.js";
 createTrash();
 
 let drag = document.getElementById("basura");
@@ -55,18 +55,24 @@ function mousedown(e) {
         if (currentDroppable != droppableBelow) {
 
             if (currentDroppable) {
-                createTrash();                
+                //createTrash();
             }
 
             currentDroppable = droppableBelow;
             if (currentDroppable) {
-                console.log(checkTrash(drag, droppableBelow));
-                //drag.remove();
-                currentDroppable =  null;
+                let score = 0;
+                score = checkTrash(drag, droppableBelow);
+
+                document.getElementById("puntuacion").innerHTML = "PUNTUACIÓN: " + score;
+                drag.remove();
                 
+                createTrash();
+                // currentDroppable = null;
+               
+
             }
         }
-      
+
 
 
         // if (prevY > map.offsetWidth) {

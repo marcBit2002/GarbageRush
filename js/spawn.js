@@ -14,8 +14,8 @@ function createImg(nameClass, urlImg) {
     trashImage.style.backgroundImage = "url(" + urlImg + ")";
     trashImage.style.backgroundSize = "cover";
     trashImage.style.backgroundPosition = "center";
-    trashImage.style.height = "150px";
-    trashImage.style.width = "150px";
+    trashImage.style.height = "190px";
+    trashImage.style.width = "170px";
     trashImage.style.position = "absolute";
     trashImage.style.cursor = "pointer";
     trashImage.style.zIndex = "100";
@@ -56,8 +56,8 @@ export function createTrash() {
     let mapWidth = map.offsetWidth;
     let mapHeight = map.offsetHeight;
 
-    let randomTop = getRandom(0, (mapHeight - 150) / 2);
-    let randomLeft = getRandom(0, mapWidth - 150);
+    let randomTop = getRandom(0, (mapHeight - 190) / 2);
+    let randomLeft = getRandom(0, mapWidth - 170);
 
     trashImage.style.left = randomLeft + "px";
     trashImage.style.top = randomTop + "px";
