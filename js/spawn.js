@@ -1,7 +1,10 @@
 let map = document.getElementById("map");
 let nameClass = selectRandomClass();
 let urlImg = selectRandomImg();
-
+export let checkScore;
+export function setCheckScoreFalse() {
+    checkScore = false;
+}
 function getRandom(min, max) {
     var ranNum = Math.floor(Math.random() * (max - min + 1) + min);
     return ranNum;
@@ -51,6 +54,8 @@ function selectRandomClass() {
 
 export function createTrash() {
     let trashImage;
+    nameClass = selectRandomClass();
+    urlImg = selectRandomImg();
     trashImage = createImg(nameClass, urlImg);
 
     let mapWidth = map.offsetWidth;
@@ -62,4 +67,6 @@ export function createTrash() {
     trashImage.style.left = randomLeft + "px";
     trashImage.style.top = randomTop + "px";
     map.appendChild(trashImage);
+    checkScore = true;
 }
+

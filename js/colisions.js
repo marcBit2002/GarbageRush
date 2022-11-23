@@ -1,9 +1,8 @@
-import { createTrash } from "./spawn.js";
+import { createTrash, setCheckScoreFalse, checkScore } from "./spawn.js";
 import { checkTrash } from "./scoreTimer.js";
-createTrash();
 
+createTrash();
 let drag = document.getElementById("basura");
-// console.log(drag.id);
 let map = document.getElementById("map");
 let currentDroppable = null;
 drag.addEventListener('mousedown', mousedown);
@@ -53,27 +52,17 @@ function mousedown(e) {
         let droppableBelow = elemBelow.closest('.dropzone');
 
         if (currentDroppable != droppableBelow) {
-
-            if (currentDroppable) {
-                //createTrash();
-            }
-
             currentDroppable = droppableBelow;
-            if (currentDroppable) {
-                let score = 0;
-                score = checkTrash(drag, droppableBelow);
-
-                document.getElementById("puntuacion").innerHTML = "PUNTUACIÓN: " + score;
+            if (currentDroppable != null) {
+                if (checkScore) {
+                    let score = 0;
+                    score = checkTrash(drag, droppableBelow);
+                    document.getElementById("puntuacion").innerHTML = "PUNTUACIÓN: " + score;
+                    setCheckScoreFalse();
+                }
                 drag.remove();
-                
-                createTrash();
-                // currentDroppable = null;
-               
-
             }
         }
-
-
 
         // if (prevY > map.offsetWidth) {
 
@@ -93,6 +82,13 @@ function mousedown(e) {
     function mouseup() {
         //Desactives els events mousemove i mouseup
         // alert("Ha entrado");
+        let drag = document.getElementById("basura");
+        if (drag == undefined) {
+            createTrash();
+            drag = document.getElementById("basura");
+            // alert(drag.id);
+            drag.addEventListener('mousedown', mousedown);
+        }
         document.removeEventListener('mousemove', mousemove);
         document.removeEventListener('mouseup', mouseup);
     }
