@@ -28,17 +28,19 @@ export function checkTrash(dragObject, dropObject) {
     return score;
 }
 
-// // window.onload = updateClock;
-// var totalTime = 60;
-// window.onload = updateClock;
-// export function updateClock() {
-//     document.getElementById('tiempo').innerHTML = "TIEMPO: " + totalTime;
+export function timer() {
+    
+    window.onload = updateClock;
+    function updateClock() {
+        var totalTime = 60;
+        document.getElementById('tiempo').innerHTML = "TIEMPO: " + totalTime;
 
-//     if (totalTime == 0) {
-//         alert("Tu puntuación ha sido: " + score);
-//     } else {
-//         totalTime -= 1;
+        if (totalTime == 0) {
+            alert("Tu puntuación ha sido: " + score);
+        } else {
+            totalTime -= 1;
+            setTimeout("updateClock()", 1000);
+        }
+    }
+}
 
-//         setTimeout("updateClock()", 1000);
-//     }
-// }

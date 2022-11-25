@@ -1,9 +1,10 @@
 import { createTrash, setCheckScoreFalse, checkScore } from "./spawn.js";
-import { checkTrash } from "./scoreTimer.js";
-
+import { checkTrash, timer } from "./scoreTimer.js";
+timer();
 createTrash();
 let drag = document.getElementById("basura");
 let map = document.getElementById("map");
+export let score = 0;
 let currentDroppable = null;
 drag.addEventListener('mousedown', mousedown);
 
@@ -55,7 +56,6 @@ function mousedown(e) {
             currentDroppable = droppableBelow;
             if (currentDroppable != null) {
                 if (checkScore) {
-                    let score = 0;
                     score = checkTrash(drag, droppableBelow);
                     document.getElementById("puntuacion").innerHTML = "PUNTUACIÓN: " + score;
                     setCheckScoreFalse();
@@ -78,19 +78,20 @@ function mousedown(e) {
         prevY = e.clientY;
     }
 
-
     function mouseup() {
         //Desactives els events mousemove i mouseup
-        // alert("Ha entrado");
         let drag = document.getElementById("basura");
         if (drag == undefined) {
-            createTrash();
-            drag = document.getElementById("basura");
-            // alert(drag.id);
-            drag.addEventListener('mousedown', mousedown);
+            newTrash();
         }
         document.removeEventListener('mousemove', mousemove);
         document.removeEventListener('mouseup', mouseup);
+    }
+
+    function newTrash() {
+        createTrash();
+        drag = document.getElementById("basura");
+        drag.addEventListener('mousedown', mousedown);
     }
 }
 

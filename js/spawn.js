@@ -1,6 +1,3 @@
-let map = document.getElementById("map");
-let nameClass = selectRandomClass();
-let urlImg = selectRandomImg();
 export let checkScore;
 export function setCheckScoreFalse() {
     checkScore = false;
@@ -26,7 +23,7 @@ function createImg(nameClass, urlImg) {
 }
 
 
-function selectRandomImg() {
+function selectRandomImg(nameClass) {
     let images;
     let path = "../assets/img/";
     let yellowImage = [path + "plastic.png"];
@@ -53,9 +50,10 @@ function selectRandomClass() {
 }
 
 export function createTrash() {
+    let map = document.getElementById("map");
     let trashImage;
-    nameClass = selectRandomClass();
-    urlImg = selectRandomImg();
+    let nameClass = selectRandomClass();
+    let urlImg = selectRandomImg(nameClass);
     trashImage = createImg(nameClass, urlImg);
 
     let mapWidth = map.offsetWidth;
