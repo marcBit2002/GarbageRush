@@ -25,11 +25,11 @@ function createImg(nameClass, urlImg) {
 
 function selectRandomImg(nameClass) {
     let images;
-    let path = "../assets/img/";
-    let yellowImage = [path + "plastic.png"];
-    let blueImage = [path + "paper.png", path + "blue.png"];
-    let greenImage = [path + "bottle.png"];
-    let brownImage = [path + "bannana.png"];
+    let path = "../assets/img/trash/";
+    let yellowImage = [path + "plastic.png", path + "bolsa.png", path + "refrescos.png", path + "pajitas.png"];
+    let blueImage = [path + "paper.png", path + "caja.png", path + "huevera.png", path + "ecobolsa.png"];
+    let greenImage = [path + "bottle.png", path + "botella.png", path + "bote.png", path + "copa.png"];
+    let brownImage = [path + "platano.png", path + "organico.png", path + "manzana.png", path + "corcho.png"];
     if (nameClass === "basuraAzul") {
         images = blueImage;
     } else if (nameClass === "basuraVerde") {
@@ -49,6 +49,7 @@ function selectRandomClass() {
     return nameClass[random];
 }
 
+//Crea la brossa amb un imatge i classe determinada i la posiciona al mapa
 export function createTrash() {
     let map = document.getElementById("map");
     let trashImage;
@@ -59,8 +60,14 @@ export function createTrash() {
     let mapWidth = map.offsetWidth;
     let mapHeight = map.offsetHeight;
 
-    let randomTop = getRandom(0, (mapHeight - 190) / 2);
-    let randomLeft = getRandom(0, mapWidth - 170);
+    let widthObject = trashImage.style.width; //"170px"
+    let width = widthObject.substring(0, widthObject.length - 2); //"170"
+
+    let heightObject = trashImage.style.height; //"190px"
+    let height = heightObject.substring(0, heightObject.length - 2); //"190"
+
+    let randomTop = getRandom(0, (mapHeight - height) / 2);
+    let randomLeft = getRandom(0, mapWidth - width);
 
     trashImage.style.left = randomLeft + "px";
     trashImage.style.top = randomTop + "px";

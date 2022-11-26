@@ -5,12 +5,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Garbage Rush</title>
     <link rel="stylesheet" href="./style/style.css">
+    <link rel="shortcut icon" href="./assets/img/icons/logo.png" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </head>
 
 <body>
+    <audio autoplay loop>
+        <source src="assets/sound/background_music2.mp3" type="audio/mp3">
+    </audio>
     <div id="map">
         <div class="posicionarContendores">
             <div id="contenedorAzul" class="dropzone"></div>
@@ -27,7 +32,31 @@
     </div>
     <script src="./js/spawn.js" type="module"></script>
     <script src="./js/scoreTimer.js" type="module"></script>
-    <script src="./js/colisions.js" type="module"></script>
+    <script src="./js/movement.js" type="module"></script>
+    <script type="module">
+        // import { score } from "./js/movement.js";
+        // var totalTime = 5;
+        // window.onload = updateClock;
+        // function updateClock() {
+        //     document.getElementById('tiempo').innerHTML = "TIEMPO: " + totalTime;
+
+        //     if (totalTime == 0) {
+        //         swal({
+        //             title: "Se ha acabado el tiempo!",
+        //             text: "Tu puntuación ha sido: " + score,
+        //             closeOnEsc: false,
+        //             dangerMode: true,
+        //             buttons: ["Volver a jugar", "Salir"]
+
+        //         });
+        //         // alert("Tu puntuación ha sido: " + score);
+        //     } else {
+        //         totalTime -= 1;
+        //         setTimeout("updateClock()", 1000);
+        //     }
+        // }
+
+    </script>
 </body>
 
 </html>
