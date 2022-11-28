@@ -1,14 +1,16 @@
 import { createTrash, setCheckScoreFalse, checkScore } from "./spawn.js";
-import { checkTrash } from "./scoreTimer.js";
+import { checkTrash,setTimer } from "./scoreTimer.js";
 
 createTrash();
 let drag = document.getElementById("basura");
 let map = document.getElementById("map");
 let currentDroppable = null;
 drag.addEventListener('mousedown', mousedown);
-export let score;
+let score;
+setTimer(10);
 
 function mousedown(e) {
+    
     //Posicio actual del mouse/cursor
     let prevX = e.clientX;
     let prevY = e.clientY;
@@ -86,4 +88,3 @@ function mousedown(e) {
         drag.addEventListener('mousedown', mousedown);
     }
 }
-

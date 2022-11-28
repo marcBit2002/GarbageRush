@@ -109,3 +109,11 @@ p {
 .swal-overlay {
     background-color: rgba(43, 165, 137, 0.45);
   }
+
+.playAgainButton {
+    background-color: green;
+}
+
+.exitButton {
+    background-color: red;
+}

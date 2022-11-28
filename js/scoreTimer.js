@@ -55,17 +55,59 @@ function createEffectSound(fuente) {
     return sonido;
 }
 
-// var totalTime = 60;
-// window.onload = updateClock;
-// function updateClock() {
-//     document.getElementById('tiempo').innerHTML = "TIEMPO: " + totalTime;
+//Estableixo la música de fons dins del joc
+window.onload = setBackgroundMusic("../assets/sound/background_music2.mp3");
 
-//     if (totalTime == 0) {
-//         alert("Tu puntuación ha sido: " + score);
-//     } else {
-//         totalTime -= 1;
-//         setTimeout("updateClock()", 1000);
-//     }
-// }
+
+function setBackgroundMusic(fuente) {
+    const sonido = document.createElement("audio");
+    sonido.src = fuente;
+    sonido.setAttribute("preload", "auto");
+    sonido.setAttribute("controls", "none");
+    sonido.setAttribute("autoplay", "true");
+    sonido.setAttribute("loop", "true");
+    sonido.style.display = "none"; // <-- oculto
+    document.body.appendChild(sonido);
+    return sonido;
+}
+//Timer que mostra un modal Swal (SweetAlert) que reinicia el joc o retorna a la pantalla d'inici
+export function setTimer(timeleft) {
+    var downloadTimer = setInterval(function () {
+        if (timeleft <= 0) {
+            clearInterval(downloadTimer);
+            let sound = createEffectSound("../assets/sound/time.mp3");
+            sound.play();
+            swal({
+                title: "Se ha acabado el tiempo!",
+                text: "Tu puntuación ha sido: " + score,
+                closeOnEsc: false,
+                dangerMode: true,
+                closeOnClickOutside: false,
+                buttons: {
+                    jugar: { text: "Volver a jugar", className: "playAgainButton" },
+                    salir: { text: "Salir", className: "exitButton" },
+                },
+
+            })
+                .then((value) => {
+                    switch (value) {
+                        case "jugar":
+                            setTimer(10);
+                            score = 0;
+                            document.getElementById("puntuacion").innerHTML = "PUNTUACIÓN: 0";
+                            break;
+                        default:
+                            window.location = "../index.html";
+                            break;
+                    }
+                })
+        } else {
+            document.getElementById("tiempo").innerHTML = "TIEMPO: " + timeleft + " seg";
+
+        }
+        timeleft -= 1;
+
+    }, 1000);
+}
 
 

@@ -12,9 +12,6 @@
 </head>
 
 <body>
-    <audio autoplay loop>
-        <source src="assets/sound/background_music2.mp3" type="audio/mp3">
-    </audio>
     <div id="map">
         <div class="posicionarContendores">
             <div id="contenedorAzul" class="dropzone"></div>
@@ -29,33 +26,10 @@
             </div>
         </div>
     </div>
+
     <script src="./js/spawn.js" type="module"></script>
     <script src="./js/scoreTimer.js" type="module"></script>
     <script src="./js/movement.js" type="module"></script>
-    <script type="module">
-        // import { score } from "./js/movement.js";
-        // var totalTime = 5;
-        // window.onload = updateClock;
-        // function updateClock() {
-        //     document.getElementById('tiempo').innerHTML = "TIEMPO: " + totalTime;
-
-        //     if (totalTime == 0) {
-        //         swal({
-        //             title: "Se ha acabado el tiempo!",
-        //             text: "Tu puntuación ha sido: " + score,
-        //             closeOnEsc: false,
-        //             dangerMode: true,
-        //             buttons: ["Volver a jugar", "Salir"]
-
-        //         });
-        //         // alert("Tu puntuación ha sido: " + score);
-        //     } else {
-        //         totalTime -= 1;
-        //         setTimeout("updateClock()", 1000);
-        //     }
-        // }
-
-    </script>
 </body>
 
 </html>
