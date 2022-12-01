@@ -7,7 +7,7 @@ let map = document.getElementById("map");
 let currentDroppable = null;
 drag.addEventListener('mousedown', mousedown);
 let score;
-setTimer(10);
+setTimer(60);
 
 function mousedown(e) {
     

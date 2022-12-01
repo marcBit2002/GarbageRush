@@ -73,7 +73,7 @@ function setBackgroundMusic(fuente) {
 //Timer que mostra un modal Swal (SweetAlert) que reinicia el joc o retorna a la pantalla d'inici
 export function setTimer(timeleft) {
     var downloadTimer = setInterval(function () {
-        if (timeleft <= 0) {
+        if (timeleft < 0) {
             clearInterval(downloadTimer);
             let sound = createEffectSound("../assets/sound/time.mp3");
             sound.play();
@@ -92,7 +92,7 @@ export function setTimer(timeleft) {
                 .then((value) => {
                     switch (value) {
                         case "jugar":
-                            setTimer(10);
+                            setTimer(60);
                             score = 0;
                             document.getElementById("puntuacion").innerHTML = "PUNTUACIÓN: 0";
                             break;
