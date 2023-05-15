@@ -42,6 +42,10 @@ export function checkTrash(dragObject, dropObject) {
         sonido = createEffectSound("../assets/sound/incorrect.mp3");
         sonido.play();
     }
+    if (score < 0) {
+        score = 0;
+        
+    }
     return score;
 }
 

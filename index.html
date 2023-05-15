@@ -30,9 +30,30 @@
         <div class="main-logo">
             <img src="./assets/img/icons/logo_menu.png" alt="Garbage Rush">
         </div>
-        <a href="./main.html" class="main-play-btn">Play</a>
+        <a id="myBtn" class="main-play-btn" style="margin-bottom: 20px;">¿Cómo jugar?</a>
+        <a href="./main.html" class="main-play-btn" style="margin-bottom: 20px;">Jugar</a>
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>Objetivo</h2>
+                </div>
+                <div class="modal-body">
+                    <p>Arrastra toda la basura posible que se genera aleatoriamente y clasifícala
+                        en los contenedores antes de que se acabe el tiempo. </p>
+                    <p>Si te equivocas se te restará de tu puntuación!</p>
+                    <video autoplay muted loop>
+                        <source src="./assets/videos/tutorial.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
     </section>
 
 </body>
+<script src="./js/modalMenu.js"></script>
+
 
 </html>
